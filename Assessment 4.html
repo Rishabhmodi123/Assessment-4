@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 320px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .icon img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        select {
+            background-color: #8b5cf6;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button {
+            background-color: #8b5cf6;
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6d28d9;
+        }
+        .result {
+            background: #eee;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon">
+            <img src="https://cdn-icons-png.flaticon.com/128/833/833448.png" alt="Currency Icon">
+        </div>
+        <h2>CURRENCY CONVERTER</h2>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" value="100">
+
+        <div style="display: flex; gap: 10px;">
+            <select id="fromCurrency">
+                <option value="USD">USD</option>
+            </select>
+            <select id="toCurrency">
+                <option value="INR">INR</option>
+            </select>
+        </div>
+
+        <button onclick="convertCurrency()">Convert</button>
+
+        <div class="result" id="resultText">100 USD = 8180.49 INR</div>
+    </div>
+
+    <script>
+        function convertCurrency() {
+            let amount = document.getElementById("amount").value;
+            let exchangeRate = 81.8049; // 1 USD = 81.8049 INR
+            let convertedAmount = (amount * exchangeRate).toFixed(2);
+            document.getElementById("resultText").innerText = 
+                `${amount} USD = ${convertedAmount} INR`;
+        }
+    </script>
+
+</body>
+</html>
